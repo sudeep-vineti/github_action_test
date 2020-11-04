@@ -1,0 +1,24 @@
+env:
+  RUBY_VERSION: 2.5.1
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: postgres
+
+name: Test Job
+
+on: push
+
+jobs:
+  rubocop-test:
+    name: Rubocop
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Bundle Install
+        run: bundle install
+      - name: Check code
+        run: rubocop
+
