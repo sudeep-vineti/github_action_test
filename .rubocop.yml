@@ -1,0 +1,18 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - node_modules/**/*
+    - db/schema.rb
+    - Rakefile
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Enabled: false

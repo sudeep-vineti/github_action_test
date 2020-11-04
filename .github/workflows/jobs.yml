@@ -16,3 +16,11 @@ jobs:
         run: bundle install
       - name: Run rubocop
         run: bundle exec rubocop
+  rspec-test:
+    name: RSpec
+    needs: rubocop-test
+    steps:
+      - name: Setup database
+        run: bundle exec rake db:reset
+      - name: Run RSpecs
+        run: bundle exec rpsec
