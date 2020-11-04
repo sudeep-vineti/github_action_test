@@ -21,6 +21,13 @@ jobs:
     needs: rubocop-test
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+        with:
+          ruby-version: 2.5.1
+      - name: Bundle
+        run: bundle install
       - name: Setup database
         run: bundle exec rake db:reset
       - name: Run RSpecs
